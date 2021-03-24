@@ -1,7 +1,7 @@
 // main 函数是入口
 // print 打印
 main() {
-  print("Hello world");
+  print("Hello world" + "22");
 
   // 变量声明
   // 1. 明确声明
@@ -10,6 +10,7 @@ main() {
   // 2. 类型推导 (var, final, const), 虽然没有指定类型, 但是变量其实是有明确的类型的.
   // var: 变量
   var age = 20;
+  final height1;
   // final: 常量
   final height = 10;
   // height = 13;
@@ -91,9 +92,14 @@ main() {
 
 class Person {
   final String name;
+  double height;
 
+  Person.fromHeight(this.height);
   const Person(this.name);
 }
+
+var p1 = Person("123");
+var p2 = Person("123");
 
 class Person2 {
   String? name;
@@ -126,6 +132,8 @@ int sum2(int num1, [int? num2, int? num3 = 3]) {
   return num1;
 }
 
+sum2(num1, 1, 2);
+
 // 命名可选参数, {}, 根据名字匹配, 用得更多
 int sum3(int num1, {int? num2, int? num3 = null}) {
   if (num2 != null) {
@@ -136,6 +144,8 @@ int sum3(int num1, {int? num2, int? num3 = null}) {
   }
   return num1;
 }
+sum3(num1: 1, num3: 3, num2: 2);
+
 
 // 函数可以作为另一个函数的参数
 void test(Function foo) {
